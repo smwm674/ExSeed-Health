@@ -46,7 +46,7 @@
             android:drawableTint="@color/black"
             android:hint="@string/search_repository"
             android:imeOptions="actionDone"
-            android:inputType="text" />
+            android:inputType="text"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
