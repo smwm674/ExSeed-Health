@@ -5,5 +5,10 @@
     <string name="search_repository">Search for Repository</string>
     <string name="no_record">No record found</string>
 
+    <string name="pull_request">Pull request</string>
+    <string name="issues">Issues</string>
+    <string name="commits">Commits</string>
+    <string name="last_release">Last release</string>
+
     <string name="failedNetworkCall">Network call has failed for a following reason</string>
 </resources>

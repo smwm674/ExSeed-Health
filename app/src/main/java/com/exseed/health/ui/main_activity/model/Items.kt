@@ -18,7 +18,7 @@ data class Items(
     val open_issues: Long,
     @SerializedName("forks")
     val commits: Long,
-    @SerializedName("pushed_at")
+    @SerializedName("updated_at")
     val lastRelase: String,
     @SerializedName("owner")
     val owner: OwnerDetails

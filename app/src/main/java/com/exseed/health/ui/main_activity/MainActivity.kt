@@ -1,12 +1,12 @@
 package com.exseed.health.ui.main_activity
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,6 +14,7 @@ import com.exseed.health.R
 import com.exseed.health.databinding.ActivityMainBinding
 import com.exseed.health.ui.main_activity.adaptor.RepositoryAdapter
 import com.exseed.health.ui.main_activity.model.Items
+import com.exseed.health.ui.repository_activity.RepositoryActivity
 import com.exseed.health.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -91,8 +92,8 @@ class MainActivity : AppCompatActivity(), RepositoryAdapter.repositoryListAction
             }
 
             override fun onTextChanged(s: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                //when search text length is less then 3 then list of all repositories will be displayed
-                if (s.isNullOrEmpty() || s.length < 3)
+                //when search text length is less then or equal to 3 then list of all repositories will be displayed
+                if (s.isNullOrEmpty() || s.length <= 3)
                     filter("${s}", data, myAdapter, false)
                 //only search filter will applied when search text length is greater than 3
                 if (!s.isNullOrEmpty() && s.length > 3)
@@ -141,6 +142,10 @@ class MainActivity : AppCompatActivity(), RepositoryAdapter.repositoryListAction
     }
 
     override fun onClick(data: Items) {
-        Toast.makeText(context, "Not yet implemented", Toast.LENGTH_SHORT)
+        val detailIntent = Intent(this@MainActivity, RepositoryActivity::class.java)
+        if (data.language == null)
+            data?.language = " "
+        detailIntent.putExtra("clickedRepository", data)
+        startActivity(detailIntent)
     }
 }
