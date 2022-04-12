@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">GitExplorer</string>
+
+    <string name="repository_library">Repository Library</string>
+    <string name="search_repository">Search for Repository</string>
+    <string name="no_record">No record found</string>
+
+    <string name="failedNetworkCall">Network call has failed for a following reason</string>
 </resources>

@@ -23,9 +23,8 @@ class SplashActivity : AppCompatActivity() {
         loadScreen()
     }
 
-    /*loadScreen():
-    Load next activity after the delay of 3 secs*/
     private fun loadScreen() {
+        //switch to main activity after the delay of 3 secs
         Handler(Looper.getMainLooper()).postDelayed({
             val splashIntent = Intent(context, MainActivity::class.java)
             startActivity(splashIntent)
@@ -33,13 +32,13 @@ class SplashActivity : AppCompatActivity() {
         }, 3000)
     }
 
-    /*Load the xml file layout(constraintLayout) according to the alpha file in anim folder
-    * Load the imageview(splashLogo) according to the translate file in anim folder*/
     private fun startAnimations() {
+        //apply alpha animation on the constraintLayout in the activity's xml file
         var animationUtils = AnimationUtils.loadAnimation(context, R.anim.alpha)
         animationUtils.reset()
         activitySplashBinding.constraintLayout.clearAnimation()
         activitySplashBinding.constraintLayout.startAnimation(animationUtils)
+        //apply translate animation on the imageView in the xml file
         animationUtils = AnimationUtils.loadAnimation(context, R.anim.translate)
         animationUtils.reset()
         activitySplashBinding.splashLogo.clearAnimation()
